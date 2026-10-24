@@ -83,17 +83,10 @@ After DNS cutover: resubmit the sitemap in Google Search Console and request rei
 
 ## Open items before launch
 
-1. **Confirm Property One.** The map pin Kiran sent resolves to *Sahaja Lake Front Gardens,
-   Kothlapur*. He sent it without a caption, so confirm it belongs to the ₹17k/₹20k
-   property and not a third one. `locationConfirmed: false` flags this in the data file.
-2. **Confirm the photo split.** The 30 WhatsApp photos arrived unlabelled. They were sorted
-   into the two properties by architecture: the blue-trimmed white villa vs. the
-   landscaped estate. Moving a photo between properties is a file move plus a `photoCount`
-   change.
-3. **Sign off the terms page.** Only check-in/out and whole-property booking come from
+1. **Sign off the terms page.** Only check-in/out and whole-property booking come from
    Kiran directly. Everything below those two in `src/pages/terms.astro` is a placeholder
    marked `needsConfirmation`. Get each one approved or delete it. Do not publish as-is.
-4. **No reviews section yet.** Deliberate. The old site had three fabricated testimonials
+2. **No reviews section yet.** Deliberate. The old site had three fabricated testimonials
    ("Ana Doe", "Olivar Lucy"). Collect real Google reviews first, then add the section.
-5. **Remaining properties.** Aadhya advertises far more than two. Each needs photos,
+3. **Remaining properties.** Aadhya advertises far more than two. Each needs photos,
    capacity, price and a location before it can go on the site.
