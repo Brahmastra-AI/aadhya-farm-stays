@@ -25,7 +25,7 @@ export interface Property {
 export const properties: Property[] = [
   {
     slug: 'pine-creek-thangadpally',
-    name: 'Pine Creek Farm Stay (Aadhya PCFS)',
+    name: 'Pine Creek Farm Stay',
     shortName: 'Pine Creek Farm Stay',
     location: 'Thangadpally, Hyderabad',
     locationConfirmed: true,
