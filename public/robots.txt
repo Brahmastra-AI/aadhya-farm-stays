@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.aadhyafarmstays.com/sitemap-index.xml

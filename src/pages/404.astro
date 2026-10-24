@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { wa } from '../data/site';
+---
+
+<Base
+  title="Page not found | Aadhya Farm Stays"
+  description="That page does not exist. Browse our farmhouses for rent near Hyderabad instead."
+>
+  <section class="wrap flex min-h-[60svh] flex-col items-center justify-center py-20 text-center">
+    <p class="eyebrow">404</p>
+    <h1 class="font-display mt-3 text-4xl leading-tight font-semibold text-ink sm:text-5xl">
+      This page is not here
+    </h1>
+    <p class="mt-5 max-w-md text-base leading-relaxed text-muted">
+      The link may be out of date. Our farmhouses are all listed on one page, so start there.
+    </p>
+    <div class="mt-9 flex flex-wrap justify-center gap-3">
+      <a
+        href="/farmhouses/"
+        class="rounded-full bg-forest-500 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-forest-600"
+      >
+        Browse farmhouses
+      </a>
+      <a
+        href={wa('Hi, I was looking for something on your website.')}
+        target="_blank"
+        rel="noopener"
+        class="rounded-full border border-forest-100 px-7 py-3.5 text-sm font-semibold text-forest-700 transition hover:border-forest-500"
+      >
+        Ask us on WhatsApp
+      </a>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,43 @@
+---
+import Photo from './Photo.astro';
+import { inr } from '../data/site';
+import type { Property } from '../data/properties';
+
+interface Props { property: Property; eager?: boolean }
+const { property: p, eager = false } = Astro.props;
+---
+<article class="group overflow-hidden rounded-2xl border border-forest-100 bg-white shadow-sm transition hover:shadow-xl hover:shadow-forest-900/5">
+  <a href={`/farmhouses/${p.slug}/`} class="block">
+    <div class="relative aspect-[4/3] overflow-hidden">
+      <Photo dir={p.slug} base="01" alt={`${p.name}, ${p.location}`}
+             loading={eager ? 'eager' : 'lazy'}
+             fetchpriority={eager ? 'high' : 'auto'}
+             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+             class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      {p.featured && (
+        <span class="absolute top-3 left-3 rounded-full bg-leaf-500 px-3 py-1 text-[0.65rem] font-bold tracking-wider text-forest-900 uppercase">
+          Flagship
+        </span>
+      )}
+      <span class="absolute right-3 bottom-3 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-forest-700">
+        {p.bhk} BHK · up to {p.maxGuests}
+      </span>
+    </div>
+
+    <div class="p-5">
+      <p class="text-xs font-medium tracking-wide text-leaf-600">{p.location}</p>
+      <h3 class="font-display mt-1 text-xl leading-snug font-semibold text-ink">{p.shortName}</h3>
+      <p class="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">{p.tagline}</p>
+
+      <div class="mt-4 flex items-end justify-between border-t border-forest-50 pt-4">
+        <div>
+          <p class="text-[0.7rem] tracking-wide text-muted uppercase">Weekday from</p>
+          <p class="font-display text-2xl font-semibold text-forest-700">{inr(p.priceWeekday)}</p>
+        </div>
+        <span class="text-sm font-semibold text-forest-600 transition-colors group-hover:text-leaf-600">
+          View details →
+        </span>
+      </div>
+    </div>
+  </a>
+</article>

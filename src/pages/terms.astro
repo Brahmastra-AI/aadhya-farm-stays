@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, wa } from '../data/site';
+
+/**
+ * NOTE FOR THE CLIENT REVIEW PASS
+ * Only the items below that come from Kiran directly are stated as policy:
+ * check-in / check-out times and payment at check-in.
+ * Everything marked `needsConfirmation` is a common farm-stay rule that we have
+ * NOT yet had confirmed. Do not publish this page until each one is signed off,
+ * or delete the ones that do not apply.
+ */
+const confirmed = [
+  {
+    t: 'Check-in and check-out',
+    d: 'Check-in is from 2:00 PM. Check-out is 11:00 AM the following morning. Early check-in or late check-out can sometimes be arranged, so please ask when booking, as it depends on the bookings either side of yours.',
+  },
+  {
+    t: 'Whole-property bookings',
+    d: 'Rates are for the entire farmhouse for one night, covering up to the stated maximum number of guests. The property is not shared with any other group during your stay.',
+  },
+];
+
+const needsConfirmation = [
+  {
+    t: 'Advance and balance',
+    d: 'An advance is required to confirm and hold a booking. The balance is payable at check-in.',
+  },
+  {
+    t: 'Additional guests',
+    d: 'Guests beyond the stated maximum are not permitted without prior written agreement.',
+  },
+  {
+    t: 'Cancellations',
+    d: 'Cancellation and rescheduling terms are confirmed in writing at the time of booking.',
+  },
+  {
+    t: 'Damage to the property',
+    d: 'Any damage to the property, furnishings or equipment during the stay is chargeable to the guest.',
+  },
+  {
+    t: 'Personal belongings',
+    d: 'Management is not responsible for loss of or damage to personal belongings left unattended on the property.',
+  },
+  {
+    t: 'Conduct and local law',
+    d: 'Any illegal activity on the premises will be reported to the local police and the booking cancelled immediately without refund.',
+  },
+];
+---
+
+<Base
+  title="Terms & Conditions | Aadhya Farm Stays"
+  description="Booking terms, check-in and check-out times, and house rules for farmhouses rented through Aadhya Farm Stays, Hyderabad."
+>
+  <section class="wrap pt-14 pb-20 md:pt-20">
+    <p class="eyebrow">Legal</p>
+    <h1 class="font-display mt-3 text-4xl leading-tight font-semibold text-ink sm:text-5xl">
+      Terms &amp; Conditions
+    </h1>
+    <p class="mt-5 max-w-2xl text-base leading-relaxed text-muted">
+      Please read these before confirming a booking. Individual properties may have additional
+      house rules, which we will send you in writing along with your booking confirmation.
+    </p>
+
+    <div class="mt-14 grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:gap-16">
+      <div class="space-y-8">
+        {[...confirmed, ...needsConfirmation].map((s, i) => (
+          <section class="border-t border-forest-100 pt-6">
+            <h2 class="font-display flex gap-3 text-xl font-semibold text-ink">
+              <span class="font-sans text-sm font-semibold text-leaf-500">{String(i + 1).padStart(2, '0')}</span>
+              {s.t}
+            </h2>
+            <p class="mt-3 text-base leading-relaxed text-muted">{s.d}</p>
+          </section>
+        ))}
+      </div>
+
+      <aside class="h-fit rounded-2xl border border-forest-100 bg-white p-7">
+        <h2 class="font-display text-lg font-semibold text-ink">Questions about a booking?</h2>
+        <p class="mt-3 text-sm leading-relaxed text-muted">
+          If anything here is unclear, ask us before you pay. We would rather talk it through than
+          have a surprise on the day.
+        </p>
+        <a
+          href={wa('Hi, I have a question about your booking terms.')}
+          target="_blank"
+          rel="noopener"
+          class="mt-6 block rounded-full bg-forest-500 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-forest-600"
+        >
+          Ask on WhatsApp
+        </a>
+        <p class="mt-4 text-center text-xs text-muted">
+          or call <a href={`tel:+91${site.phone}`} class="font-semibold text-forest-700">{site.phoneDisplay}</a>
+        </p>
+      </aside>
+    </div>
+
+    <p class="mt-16 text-xs text-muted">
+      These terms are governed by the laws of Telangana, India. Disputes are subject to the
+      jurisdiction of the courts of Hyderabad.
+    </p>
+  </section>
+</Base>

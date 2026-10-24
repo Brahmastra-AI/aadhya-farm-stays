@@ -1,0 +1,89 @@
+# Aadhya Farm Stays redirect map (Netlify)
+# Generated during the WordPress -> Astro migration.
+
+# --- 1. Real old pages: keep their ranking -------------------------------
+/farm-houses-resorts/                                     /farmhouses/                                  301
+/farm-house-for-rent-in-hyderabad/                        /farmhouses/                                  301
+/aadhya-pcfs-farmhouse-for-rent-in-thangadpally-hyderabad/ /farmhouses/pine-creek-thangadpally/           301
+/aadhyas-farmhouse-rent-moinabad/                         /farmhouses/                                  301
+/about-us/                                                /#about                                       301
+/blog-insights/                                           /farmhouses/                                  301
+/category/farm-houses/                                    /farmhouses/                                  301
+
+# --- 2. Injected casino spam: tell Google it is permanently gone ---------
+# 410 flushes these from the index far faster than a 404 or a redirect.
+/gizbo-casino-test-boni-spiele-auszahlungen-im-uberblick/                                 /404.html   410
+/untitled/                                                                                /404.html   410
+/az-on-line-online-kaszinojatekok-es-az-online/                                           /404.html   410
+/kodl-apibrimas-tai-reikia-ir-pavyzdiai-5/                                                /404.html   410
+/why-some-people-almost-always-save-money-with-tikitakacasino/                            /404.html   410
+/now-you-can-have-the-mrpuntercasino-of-your-dreams-cheaperfaster-than-you-ever-imagined/ /404.html   410
+/wintherecasino-it-never-ends-unless/                                                     /404.html   410
+/at-last-the-secret-to-gxmble-is-revealed/                                                /404.html   410
+/the-best-5-examples-of-aviamastersdemo/                                                  /404.html   410
+/vps-vs-shared-internet-hosting-which-hosting/                                            /404.html   410
+/vad-ar-multiplicador-en-tragamonedas-forklarat/                                          /404.html   410
+/se7en-worst-mrwestcasino-techniques/                                                     /404.html   410
+/easy-steps-to-spinmama-of-your-dreams/                                                   /404.html   410
+/20-myths-about-stake-arg-in-2021/                                                        /404.html   410
+/extreme-zelenakorona/                                                                    /404.html   410
+/free-advice-on-gransino/                                                                 /404.html   410
+/casoola-and-love-have-4-things-in-common/                                                /404.html   410
+/magius-creates-experts/                                                                  /404.html   410
+/7-ways-to-keep-your-drop-the-boss-2-growing-without-burning-the-midnight-oil/            /404.html   410
+/need-more-inspiration-with-kaasino-read-this/                                            /404.html   410
+/a-good-lucky-hunter-is/                                                                  /404.html   410
+/10-reasons-you-need-to-stop-stressing-about-goat-spins/                                  /404.html   410
+/7-incredible-drop-the-boss-2-transformations/                                            /404.html   410
+/garrisonbet-the-samurai-way/                                                             /404.html   410
+/clear-and-unbiased-facts-about-retrobet-without-all-the-hype/                            /404.html   410
+/the-business-of-roulettino/                                                              /404.html   410
+/improve-your-winbeatz-in-4-days/                                                         /404.html   410
+/same-day-fresh-flower-delivery-in-singapore-2026/                                        /404.html   410
+/why-are-florist-bouquets-so-expensive-2/                                                 /404.html   410
+/why-did-my-orchid-buds-fall-off-common-causes/                                           /404.html   410
+/join-premium-online-casino-australia-payid-the-smart-way-to-play/                        /404.html   410
+/live-dealer-casinos-a-true-blue-aussie-guide/                                            /404.html   410
+/why-aussies-are-flocking-to-play-trusted-pokie-games-online/                             /404.html   410
+/understanding-scatter-payouts-on-aussie-pokies/                                          /404.html   410
+/why-you-should-try-crypto-deposit-online-casino-australia-right-now/                     /404.html   410
+/live-dealer-roulette-with-instant-withdrawals-in-aud/                                    /404.html   410
+/win-high-rtp-gambling-house-where-aussies-get-the-best-bang-for-their-buck/              /404.html   410
+/roulette-with-exclusive-bonuses-usa-a-comprehensive-guide/                               /404.html   410
+/bizzo-casino-bonus-codes-2026-everything-you-need-to-know/                               /404.html   410
+/rocket-casino-payid-deposit-a-comprehensive-guide/                                       /404.html   410
+/the-ultimate-guide-to-kingmaker-welcome-offer-oz/                                        /404.html   410
+
+# --- 3. Spam categories and tags -----------------------------------------
+/category/flower/                                                                         /404.html   410
+/category/game/                                                                           /404.html   410
+/category/gamification/                                                                   /404.html   410
+/category/host/                                                                           /404.html   410
+/category/lists/                                                                          /404.html   410
+/category/uncategorized/                                                                  /404.html   410
+/tag/*                                                                                    /404.html   410
+
+# --- 4. Leftover WordPress theme demo content -----------------------------
+/home-one/                                                                                /404.html   410
+/home-two/                                                                                /404.html   410
+/home-three/                                                                              /404.html   410
+/sample-page/                                                                             /404.html   410
+/our-team/                                                                                /404.html   410
+/faq/                                                                                     /404.html   410
+/apartment_list/apartment/                                                                /404.html   410
+/apartment_list/double-bed/                                                               /404.html   410
+/apartment_list/duplex/                                                                   /404.html   410
+/apartment_list/penthouse/                                                                /404.html   410
+/apartment_list/simplex/                                                                  /404.html   410
+/apartment_list/studio/                                                                   /404.html   410
+/testimonial/ana-doe/                                                                     /404.html   410
+/testimonial/d-dowson/                                                                    /404.html   410
+/testimonial/olivar-lucy/                                                                 /404.html   410
+
+# --- 5. WordPress surface area that no longer exists ----------------------
+/wp-admin/*                                                                               /404.html   410
+/wp-login.php                                                                             /404.html   410
+/wp-json/*                                                                                /404.html   410
+/xmlrpc.php                                                                               /404.html   410
+/feed/                                                                                    /404.html   410
+/comments/feed/                                                                           /404.html   410

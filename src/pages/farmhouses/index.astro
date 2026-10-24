@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+import PropertyCard from '../../components/PropertyCard.astro';
+import { properties } from '../../data/properties';
+import { site, wa } from '../../data/site';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Farmhouses for rent near Hyderabad',
+  itemListElement: properties.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: p.name,
+    url: `https://www.aadhyafarmstays.com/farmhouses/${p.slug}/`,
+  })),
+};
+---
+
+<Base
+  title="Farmhouses for Rent near Hyderabad | Aadhya Farm Stays"
+  description="Browse private farmhouses for rent around Hyderabad. 3BHK villas with swimming pools, campfires and large lawns, sleeping up to 22 guests. From ₹17,000 a night."
+  schema={schema}
+>
+  <section class="wrap pt-14 pb-10 md:pt-20">
+    <p class="eyebrow">Our Collection</p>
+    <h1 class="font-display mt-3 max-w-3xl text-4xl leading-tight font-semibold text-ink sm:text-5xl">
+      Farmhouses for rent near Hyderabad
+    </h1>
+    <p class="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      Each one is a whole property to yourself: house, pool, lawn and gardens. Prices below are
+      per night for the entire farmhouse, not per room.
+    </p>
+
+    <div class="mt-7 flex flex-wrap gap-2">
+      {site.areas.map((a) => (
+        <span class="rounded-full border border-forest-100 bg-white px-4 py-1.5 text-xs font-medium text-muted">
+          {a}
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap pb-10">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {properties.map((p, i) => <PropertyCard property={p} eager={i === 0} />)}
+
+      <article class="flex flex-col items-start justify-center rounded-2xl border border-dashed border-forest-300 bg-forest-50 p-8">
+        <p class="eyebrow">Not listed yet</p>
+        <h2 class="font-display mt-2 text-xl font-semibold text-ink">We have more than this</h2>
+        <p class="mt-2 text-sm leading-relaxed text-muted">
+          More farmhouses across Moinabad, Chevella, Shamshabad and Sadasivpet are being
+          photographed for the site. Tell us your dates, group size and budget and we will send
+          you what fits.
+        </p>
+        <a
+          href={wa('Hi, I am looking for a farmhouse near Hyderabad. Dates / group size / budget:')}
+          target="_blank"
+          rel="noopener"
+          class="mt-5 rounded-full bg-forest-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-forest-600"
+        >
+          Tell us what you need
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap py-16">
+    <div class="rounded-3xl border border-forest-100 bg-white p-8 md:p-12">
+      <h2 class="font-display text-2xl font-semibold text-ink">How our pricing works</h2>
+      <div class="mt-6 grid gap-7 text-sm leading-relaxed text-muted md:grid-cols-3">
+        <div>
+          <h3 class="font-semibold text-ink">Whole property</h3>
+          <p class="mt-2">
+            The price is for the entire farmhouse for one night, not per person and not per room.
+            Nobody else is booked in alongside you.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-ink">Weekday vs weekend</h3>
+          <p class="mt-2">
+            Friday, Saturday and Sunday nights are charged at the weekend rate. Public holidays and
+            long weekends may be priced differently, and we will tell you up front.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-ink">What is extra</h3>
+          <p class="mt-2">
+            Campfire, barbeque and a cook can usually be arranged for an additional charge. Confirm
+            these when you book so everything is ready when you arrive.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

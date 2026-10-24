@@ -1,0 +1,200 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import Gallery from '../../components/Gallery.astro';
+import PropertyCard from '../../components/PropertyCard.astro';
+import { properties } from '../../data/properties';
+import { site, wa, inr } from '../../data/site';
+
+export function getStaticPaths() {
+  return properties.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+
+const { p } = Astro.props;
+const others = properties.filter((o) => o.slug !== p.slug);
+
+const enquiry = wa(
+  `Hi Aadhya Farm Stays, I would like to book ${p.name} (${p.bhk}BHK, ${p.location}). My dates are:`
+);
+
+const facts = [
+  { l: 'Configuration', v: `${p.bhk} BHK` },
+  { l: 'Sleeps up to', v: `${p.maxGuests} guests` },
+  { l: 'Check-in', v: p.checkIn },
+  { l: 'Check-out', v: p.checkOut },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: p.name,
+  description: p.tagline,
+  telephone: `+91${site.phone}`,
+  email: site.email,
+  url: `https://www.aadhyafarmstays.com/farmhouses/${p.slug}/`,
+  image: `https://www.aadhyafarmstays.com/img/${p.slug}/01-1600.webp`,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: p.location,
+    addressRegion: 'Telangana',
+    addressCountry: 'IN',
+  },
+  numberOfRooms: p.bhk,
+  petsAllowed: false,
+  amenityFeature: p.amenities.map((a) => ({ '@type': 'LocationFeatureSpecification', name: a })),
+  priceRange: `${inr(p.priceWeekday)} to ${inr(p.priceWeekend)} per night`,
+  checkinTime: '14:00',
+  checkoutTime: '11:00',
+};
+---
+
+<Base
+  title={`${p.shortName}, ${p.bhk}BHK Farmhouse in ${p.location.split(',')[0]} | Aadhya Farm Stays`}
+  description={`${p.tagline} Sleeps up to ${p.maxGuests}. ${inr(p.priceWeekday)} weekday, ${inr(p.priceWeekend)} weekend. Book directly on WhatsApp.`}
+  image={`/img/${p.slug}/01-1600.webp`}
+  schema={schema}
+>
+  <nav aria-label="Breadcrumb" class="wrap pt-6 text-xs text-muted">
+    <a href="/" class="hover:text-forest-600">Home</a>
+    <span class="mx-1.5">/</span>
+    <a href="/farmhouses/" class="hover:text-forest-600">Farmhouses</a>
+    <span class="mx-1.5">/</span>
+    <span class="text-ink">{p.shortName}</span>
+  </nav>
+
+  <article class="wrap pt-6 pb-4">
+    <header class="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-end">
+      <div>
+        <p class="eyebrow">{p.location}</p>
+        <h1 class="font-display mt-2 text-3xl leading-tight font-semibold text-ink sm:text-4xl lg:text-5xl">
+          {p.name}
+        </h1>
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">{p.tagline}</p>
+      </div>
+
+      <div class="rounded-2xl border border-forest-100 bg-white p-6 shadow-sm">
+        <div class="flex items-baseline justify-between gap-4">
+          <div>
+            <p class="text-[0.7rem] tracking-wide text-muted uppercase">Weekday</p>
+            <p class="font-display text-3xl font-semibold text-forest-700">{inr(p.priceWeekday)}</p>
+          </div>
+          <div class="text-right">
+            <p class="text-[0.7rem] tracking-wide text-muted uppercase">Weekend</p>
+            <p class="font-display text-3xl font-semibold text-forest-700">{inr(p.priceWeekend)}</p>
+          </div>
+        </div>
+        <p class="mt-2 text-xs text-muted">Per night, whole property, up to {p.maxGuests} guests.</p>
+        <a
+          href={enquiry}
+          target="_blank"
+          rel="noopener"
+          class="mt-5 block rounded-full bg-forest-500 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-forest-600"
+        >
+          Check availability on WhatsApp
+        </a>
+        <a
+          href={`tel:+91${site.phone}`}
+          class="mt-2 block rounded-full border border-forest-100 px-6 py-3 text-center text-sm font-semibold text-forest-700 transition hover:border-forest-500"
+        >
+          Call {site.phoneDisplay}
+        </a>
+      </div>
+    </header>
+
+    <div class="mt-10 overflow-hidden rounded-2xl">
+      <Photo
+        dir={p.slug}
+        base="01"
+        alt={`${p.name}, ${p.location}`}
+        loading="eager"
+        fetchpriority="high"
+        sizes="100vw"
+        class="aspect-[16/10] w-full object-cover md:aspect-[21/9]"
+      />
+    </div>
+
+    <dl class="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-forest-100 bg-forest-100 md:grid-cols-4">
+      {facts.map((f) => (
+        <div class="bg-white p-5">
+          <dt class="text-[0.7rem] tracking-wide text-muted uppercase">{f.l}</dt>
+          <dd class="font-display mt-1 text-lg font-semibold text-ink">{f.v}</dd>
+        </div>
+      ))}
+    </dl>
+
+    <div class="mt-16 grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-16">
+      <div>
+        <h2 class="font-display text-2xl font-semibold text-ink sm:text-3xl">About this farmhouse</h2>
+        <p class="mt-5 text-base leading-relaxed text-muted">{p.description}</p>
+
+        <h3 class="font-display mt-10 text-xl font-semibold text-ink">What stands out</h3>
+        <ul class="mt-5 space-y-3">
+          {p.highlights.map((h) => (
+            <li class="flex gap-3 text-base text-muted">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-leaf-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              {h}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <aside>
+        <h3 class="font-display text-xl font-semibold text-ink">Amenities</h3>
+        <ul class="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-1">
+          {p.amenities.map((a) => (
+            <li class="rounded-lg border border-forest-100 bg-white px-4 py-2.5 text-sm text-muted">{a}</li>
+          ))}
+        </ul>
+
+        {p.mapUrl && (
+          <>
+            <h3 class="font-display mt-10 text-xl font-semibold text-ink">Getting there</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted">{p.location}</p>
+            <a
+              href={p.mapUrl}
+              target="_blank"
+              rel="noopener"
+              class="mt-4 inline-flex items-center gap-2 rounded-full border border-forest-100 px-5 py-2.5 text-sm font-semibold text-forest-700 transition hover:border-forest-500"
+            >
+              Open in Google Maps →
+            </a>
+          </>
+        )}
+      </aside>
+    </div>
+
+    <section class="mt-20">
+      <h2 class="font-display text-2xl font-semibold text-ink sm:text-3xl">Photos</h2>
+      <p class="mt-2 text-sm text-muted">Tap any photo to view it full size.</p>
+      <div class="mt-7">
+        <Gallery dir={p.slug} count={p.photoCount} name={p.name} />
+      </div>
+    </section>
+
+    <section class="mt-20 rounded-3xl bg-forest-900 px-6 py-14 text-center text-white md:px-16">
+      <h2 class="font-display text-2xl font-semibold sm:text-3xl">Want this one?</h2>
+      <p class="mx-auto mt-3 max-w-md text-sm text-white/75">
+        Send us your dates and we will confirm availability and the final price straight away.
+      </p>
+      <a
+        href={enquiry}
+        target="_blank"
+        rel="noopener"
+        class="mt-7 inline-block rounded-full bg-leaf-500 px-7 py-3.5 text-sm font-semibold text-forest-900 transition hover:bg-leaf-300"
+      >
+        Enquire on WhatsApp
+      </a>
+    </section>
+
+    {others.length > 0 && (
+      <section class="mt-20">
+        <h2 class="font-display text-2xl font-semibold text-ink sm:text-3xl">Other farmhouses</h2>
+        <div class="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {others.map((o) => <PropertyCard property={o} />)}
+        </div>
+      </section>
+    )}
+  </article>
+</Base>

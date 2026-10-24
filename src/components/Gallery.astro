@@ -1,0 +1,47 @@
+---
+import Photo from './Photo.astro';
+
+interface Props { dir: string; count: number; name: string }
+const { dir, count, name } = Astro.props;
+const bases = Array.from({ length: count }, (_, i) => String(i + 1).padStart(2, '0'));
+---
+<div class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:gap-4">
+  {bases.map((b, i) => (
+    <button
+      type="button"
+      data-lightbox={`/img/${dir}/${b}-1600.webp`}
+      data-caption={`${name}, photo ${i + 1} of ${count}`}
+      class={`group relative overflow-hidden rounded-xl bg-forest-50 ${i === 0 ? 'col-span-2 row-span-2 aspect-square md:aspect-[4/3]' : 'aspect-[4/3]'}`}
+      aria-label={`Open photo ${i + 1} of ${count}`}
+    >
+      <Photo dir={dir} base={b} alt={`${name}, photo ${i + 1}`}
+             sizes="(min-width: 768px) 33vw, 50vw"
+             class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+    </button>
+  ))}
+</div>
+
+<dialog id="lightbox"
+        class="m-auto max-h-[92dvh] max-w-[96vw] rounded-2xl bg-transparent p-0 backdrop:bg-black/80 backdrop:backdrop-blur-sm">
+  <button type="button" data-close
+          class="absolute top-3 right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-xl text-white"
+          aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="" class="max-h-[92dvh] max-w-[96vw] rounded-2xl object-contain" />
+</dialog>
+
+<script>
+  const dlg = document.getElementById('lightbox') as HTMLDialogElement | null;
+  const img = document.getElementById('lightbox-img') as HTMLImageElement | null;
+  if (dlg && img) {
+    document.querySelectorAll<HTMLButtonElement>('[data-lightbox]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        img.src = btn.dataset.lightbox ?? '';
+        img.alt = btn.dataset.caption ?? '';
+        dlg.showModal();
+      });
+    });
+    dlg.querySelector('[data-close]')?.addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('close', () => { img.src = ''; });
+  }
+</script>
