@@ -3,7 +3,7 @@ import { site, wa } from '../data/site';
 import { properties } from '../data/properties';
 const year = new Date().getFullYear();
 ---
-<footer class="mt-24 border-t border-forest-100 bg-white">
+<footer class="mt-24 border-t border-ocean-100 bg-white">
   <div class="wrap grid gap-10 py-14 md:grid-cols-4 md:py-16">
     <div class="md:col-span-2">
       <img src="/img/brand/logo.webp" alt={site.name} width="150" height="88" class="h-14 w-auto object-contain" />
@@ -14,7 +14,7 @@ const year = new Date().getFullYear();
       <div class="mt-5 flex gap-3">
         {Object.entries(site.socials).map(([k, href]) => (
           <a href={href} target="_blank" rel="noopener"
-             class="rounded-full border border-forest-100 px-3 py-1.5 text-xs font-medium text-forest-700 capitalize transition hover:border-forest-500 hover:text-forest-600">
+             class="rounded-full border border-ocean-100 px-3 py-1.5 text-xs font-medium text-ocean-700 capitalize transition hover:border-ocean-500 hover:text-ocean-600">
             {k}
           </a>
         ))}
@@ -25,25 +25,25 @@ const year = new Date().getFullYear();
       <h3 class="text-xs font-semibold tracking-[0.18em] text-ink uppercase">Our Farmhouses</h3>
       <ul class="mt-4 space-y-2.5 text-sm text-muted">
         {properties.map((p) => (
-          <li><a href={`/farmhouses/${p.slug}/`} class="transition-colors hover:text-forest-600">{p.shortName}</a></li>
+          <li><a href={`/farmhouses/${p.slug}/`} class="transition-colors hover:text-ocean-600">{p.shortName}</a></li>
         ))}
-        <li><a href="/farmhouses/" class="transition-colors hover:text-forest-600">View all</a></li>
+        <li><a href="/farmhouses/" class="transition-colors hover:text-ocean-600">View all</a></li>
       </ul>
     </div>
 
     <div>
       <h3 class="text-xs font-semibold tracking-[0.18em] text-ink uppercase">Get in Touch</h3>
       <ul class="mt-4 space-y-2.5 text-sm text-muted">
-        <li><a href={`tel:+91${site.phone}`} class="transition-colors hover:text-forest-600">{site.phoneDisplay}</a></li>
-        <li><a href={`mailto:${site.email}`} class="break-all transition-colors hover:text-forest-600">{site.email}</a></li>
-        <li><a href={wa('Hi Aadhya Farm Stays!')} target="_blank" rel="noopener" class="transition-colors hover:text-forest-600">WhatsApp us</a></li>
-        <li><a href="/contact/" class="transition-colors hover:text-forest-600">Contact & enquiry</a></li>
-        <li><a href="/terms/" class="transition-colors hover:text-forest-600">Terms & conditions</a></li>
+        <li><a href={`tel:+91${site.phone}`} class="transition-colors hover:text-ocean-600">{site.phoneDisplay}</a></li>
+        <li><a href={`mailto:${site.email}`} class="break-all transition-colors hover:text-ocean-600">{site.email}</a></li>
+        <li><a href={wa('Hi Aadhya Farm Stays!')} target="_blank" rel="noopener" class="transition-colors hover:text-ocean-600">WhatsApp us</a></li>
+        <li><a href="/contact/" class="transition-colors hover:text-ocean-600">Contact & enquiry</a></li>
+        <li><a href="/terms/" class="transition-colors hover:text-ocean-600">Terms & conditions</a></li>
       </ul>
     </div>
   </div>
 
-  <div class="border-t border-forest-100">
+  <div class="border-t border-ocean-100">
     <div class="wrap flex flex-col gap-2 py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
       <p>© {year} {site.name}. All rights reserved.</p>
       <p>{site.areas.join(' · ')}</p>

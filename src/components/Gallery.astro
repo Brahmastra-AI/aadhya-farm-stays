@@ -11,7 +11,7 @@ const bases = Array.from({ length: count }, (_, i) => String(i + 1).padStart(2, 
       type="button"
       data-lightbox={`/img/${dir}/${b}-1600.webp`}
       data-caption={`${name}, photo ${i + 1} of ${count}`}
-      class={`group relative overflow-hidden rounded-xl bg-forest-50 ${i === 0 ? 'col-span-2 row-span-2 aspect-square md:aspect-[4/3]' : 'aspect-[4/3]'}`}
+      class={`group relative overflow-hidden rounded-xl bg-ocean-50 ${i === 0 ? 'col-span-2 row-span-2 aspect-square md:aspect-[4/3]' : 'aspect-[4/3]'}`}
       aria-label={`Open photo ${i + 1} of ${count}`}
     >
       <Photo dir={dir} base={b} alt={`${name}, photo ${i + 1}`}

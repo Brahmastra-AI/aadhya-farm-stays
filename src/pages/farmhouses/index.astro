@@ -34,7 +34,7 @@ const schema = {
 
     <div class="mt-7 flex flex-wrap gap-2">
       {site.areas.map((a) => (
-        <span class="rounded-full border border-forest-100 bg-white px-4 py-1.5 text-xs font-medium text-muted">
+        <span class="rounded-full border border-ocean-100 bg-white px-4 py-1.5 text-xs font-medium text-muted">
           {a}
         </span>
       ))}
@@ -45,7 +45,7 @@ const schema = {
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {properties.map((p, i) => <PropertyCard property={p} eager={i === 0} />)}
 
-      <article class="flex flex-col items-start justify-center rounded-2xl border border-dashed border-forest-300 bg-forest-50 p-8">
+      <article class="flex flex-col items-start justify-center rounded-2xl border border-dashed border-ocean-300 bg-ocean-50 p-8">
         <p class="eyebrow">Not listed yet</p>
         <h2 class="font-display mt-2 text-xl font-semibold text-ink">We have more than this</h2>
         <p class="mt-2 text-sm leading-relaxed text-muted">
@@ -57,7 +57,7 @@ const schema = {
           href={wa('Hi, I am looking for a farmhouse near Hyderabad. Dates / group size / budget:')}
           target="_blank"
           rel="noopener"
-          class="mt-5 rounded-full bg-forest-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-forest-600"
+          class="mt-5 rounded-full bg-ocean-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-ocean-600"
         >
           Tell us what you need
         </a>
@@ -66,7 +66,7 @@ const schema = {
   </section>
 
   <section class="wrap py-16">
-    <div class="rounded-3xl border border-forest-100 bg-white p-8 md:p-12">
+    <div class="rounded-3xl border border-ocean-100 bg-white p-8 md:p-12">
       <h2 class="font-display text-2xl font-semibold text-ink">How our pricing works</h2>
       <div class="mt-6 grid gap-7 text-sm leading-relaxed text-muted md:grid-cols-3">
         <div>

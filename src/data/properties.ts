@@ -55,7 +55,7 @@ export const properties: Property[] = [
       'Landscaped garden & gazebo',
       'Ample parking',
     ],
-    photoCount: 14,
+    photoCount: 17,
     featured: true,
   },
   {
@@ -93,7 +93,7 @@ export const properties: Property[] = [
       'Landscaped garden pathways',
       'Ample parking',
     ],
-    photoCount: 15,
+    photoCount: 12,
   },
 ];
 

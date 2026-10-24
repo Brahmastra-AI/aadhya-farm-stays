@@ -1,24 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colours sampled from the Aadhya logo */
-  --color-leaf-50:  #f4faec;
-  --color-leaf-100: #e6f5d2;
-  --color-leaf-300: #bde07f;
-  --color-leaf-500: #8cc63e;
-  --color-leaf-600: #76ad2f;
+  /* Brand: blue and white, per client direction. The Adhya farm villa itself
+     is white with blue banding, so the palette follows the architecture. */
+  --color-sky-50:  #eef8fe;
+  --color-sky-100: #d5eefc;
+  --color-sky-300: #7fcdf4;
+  --color-sky-500: #2ea8e6;
+  --color-sky-600: #157aae;
 
-  --color-forest-50:  #eefaf2;
-  --color-forest-100: #d5f2e0;
-  --color-forest-300: #6fcc95;
-  --color-forest-500: #0b9444;
-  --color-forest-600: #097c39;
-  --color-forest-700: #07632e;
-  --color-forest-900: #053c1d;
+  --color-ocean-50:  #eff6fc;
+  --color-ocean-100: #d6e8f6;
+  --color-ocean-300: #6ea9d8;
+  --color-ocean-500: #0c6ca8;
+  --color-ocean-600: #0a5a8d;
+  --color-ocean-700: #084872;
+  --color-ocean-900: #052c47;
 
-  --color-cream: #fbfaf5;
-  --color-ink:   #16211b;
-  --color-muted: #5d6b62;
+  --color-cream: #f7fafc;
+  --color-ink:   #0f1b24;
+  --color-muted: #566977;
 
   --font-display: "Fraunces", ui-serif, Georgia, serif;
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
@@ -37,10 +38,10 @@ body { background: var(--color-cream); color: var(--color-ink); }
 
 .eyebrow {
   font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
-  font-weight: 600; color: var(--color-forest-500);
+  font-weight: 600; color: var(--color-ocean-500);
 }
 
-.hairline { height: 1px; background: linear-gradient(90deg, transparent, #0b944433, transparent); }
+.hairline { height: 1px; background: linear-gradient(90deg, transparent, #0c6ca833, transparent); }
 
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 .rise { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }

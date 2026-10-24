@@ -68,17 +68,17 @@ const schema = {
       sizes="100vw"
       class="absolute inset-0 -z-10 h-full w-full object-cover"
     />
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-forest-900/75 via-forest-900/55 to-forest-900/80"></div>
-    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-forest-900/70 via-forest-900/20 to-transparent"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-ocean-900/75 via-ocean-900/55 to-ocean-900/80"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-ocean-900/70 via-ocean-900/20 to-transparent"></div>
 
     <div class="wrap flex min-h-[86svh] flex-col justify-center py-24 text-white">
       <p class="rise mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium backdrop-blur">
-        <span class="h-1.5 w-1.5 rounded-full bg-leaf-500"></span>
+        <span class="h-1.5 w-1.5 rounded-full bg-sky-500"></span>
         Moinabad · Chevella · Thangadpally · Shamshabad
       </p>
       <h1 class="rise font-display max-w-3xl text-4xl leading-[1.08] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
         The whole farmhouse.<br />
-        <em class="font-normal text-leaf-300">Just for your people.</em>
+        <em class="font-normal text-sky-300">Just for your people.</em>
       </h1>
       <p class="rise mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
         Private 3BHK farmhouses an hour from Hyderabad, with a swimming pool, campfire, open lawns and
@@ -89,7 +89,7 @@ const schema = {
           href={wa('Hi Aadhya Farm Stays, I would like to check availability for a farmhouse.')}
           target="_blank"
           rel="noopener"
-          class="rounded-full bg-leaf-500 px-7 py-3.5 text-sm font-semibold text-forest-900 shadow-lg shadow-black/20 transition hover:bg-leaf-300"
+          class="rounded-full bg-sky-500 px-7 py-3.5 text-sm font-semibold text-ocean-900 shadow-lg shadow-black/20 transition hover:bg-sky-300"
         >
           Check availability
         </a>
@@ -102,11 +102,11 @@ const schema = {
       </div>
     </div>
 
-    <div class="border-t border-white/15 bg-forest-900/55 backdrop-blur-sm">
+    <div class="border-t border-white/15 bg-ocean-900/55 backdrop-blur-sm">
       <div class="wrap grid grid-cols-2 gap-y-7 py-8 text-white md:grid-cols-4">
         {stats.map((s) => (
           <div class="text-center">
-            <p class="font-display text-2xl font-semibold text-leaf-300 md:text-3xl">{s.n}</p>
+            <p class="font-display text-2xl font-semibold text-sky-300 md:text-3xl">{s.n}</p>
             <p class="mt-1 text-[0.7rem] tracking-wide text-white/70 uppercase md:text-xs">{s.l}</p>
           </div>
         ))}
@@ -135,7 +135,7 @@ const schema = {
         </div>
         <a
           href="/farmhouses/"
-          class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-forest-600 transition hover:gap-3 hover:text-forest-700"
+          class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ocean-600 transition hover:gap-3 hover:text-ocean-700"
         >
           See all farmhouses <span aria-hidden="true">→</span>
         </a>
@@ -144,17 +144,17 @@ const schema = {
       <div class="grid grid-cols-2 gap-4">
         <Photo
           dir="pine-creek-thangadpally"
-          base="10"
-          alt="Landscaped garden at Pine Creek Farm Stay"
+          base="04"
+          alt="Lit stone pathway through the gardens at Pine Creek Farm Stay"
           sizes="(min-width: 1024px) 25vw, 45vw"
-          class="aspect-[3/4] w-full rounded-2xl object-cover shadow-lg shadow-forest-900/10"
+          class="aspect-[3/4] w-full rounded-2xl object-cover shadow-lg shadow-ocean-900/10"
         />
         <Photo
           dir="pine-creek-thangadpally"
           base="02"
-          alt="Swimming pool lit at night"
+          alt="The full-length swimming pool at Pine Creek Farm Stay"
           sizes="(min-width: 1024px) 25vw, 45vw"
-          class="mt-8 aspect-[3/4] w-full rounded-2xl object-cover shadow-lg shadow-forest-900/10"
+          class="mt-8 aspect-[3/4] w-full rounded-2xl object-cover shadow-lg shadow-ocean-900/10"
         />
       </div>
     </div>
@@ -169,13 +169,13 @@ const schema = {
             Pick your farmhouse
           </h2>
         </div>
-        <a href="/farmhouses/" class="text-sm font-semibold text-forest-600 hover:text-forest-700">View all →</a>
+        <a href="/farmhouses/" class="text-sm font-semibold text-ocean-600 hover:text-ocean-700">View all →</a>
       </div>
 
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {properties.map((p, i) => <PropertyCard property={p} eager={i === 0} />)}
 
-        <article class="flex flex-col items-start justify-center rounded-2xl border border-dashed border-forest-300 bg-forest-50 p-8">
+        <article class="flex flex-col items-start justify-center rounded-2xl border border-dashed border-ocean-300 bg-ocean-50 p-8">
           <p class="eyebrow">More coming</p>
           <h3 class="font-display mt-2 text-xl font-semibold text-ink">Looking for something else?</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted">
@@ -186,7 +186,7 @@ const schema = {
             href={wa('Hi, I am looking for a farmhouse. Here are my dates and group size:')}
             target="_blank"
             rel="noopener"
-            class="mt-5 rounded-full bg-forest-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-forest-600"
+            class="mt-5 rounded-full bg-ocean-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-ocean-600"
           >
             Ask us on WhatsApp
           </a>
@@ -203,11 +203,11 @@ const schema = {
       </h2>
     </div>
 
-    <div class="mt-12 grid gap-px overflow-hidden rounded-2xl border border-forest-100 bg-forest-100 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-12 grid gap-px overflow-hidden rounded-2xl border border-ocean-100 bg-ocean-100 sm:grid-cols-2 lg:grid-cols-3">
       {occasions.map((o) => (
         <div class="group bg-cream p-7 transition-colors hover:bg-white">
           <svg
-            class="h-7 w-7 text-forest-500 transition-colors group-hover:text-leaf-500"
+            class="h-7 w-7 text-ocean-500 transition-colors group-hover:text-sky-500"
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
@@ -223,10 +223,10 @@ const schema = {
     </div>
   </section>
 
-  <section id="amenities" class="bg-forest-900 py-20 text-white md:py-28">
+  <section id="amenities" class="bg-ocean-900 py-20 text-white md:py-28">
     <div class="wrap">
       <div class="max-w-2xl">
-        <p class="text-[0.72rem] font-semibold tracking-[0.18em] text-leaf-300 uppercase">
+        <p class="text-[0.72rem] font-semibold tracking-[0.18em] text-sky-300 uppercase">
           What is included
         </p>
         <h2 class="font-display mt-3 text-3xl leading-tight font-semibold sm:text-4xl">
@@ -237,7 +237,7 @@ const schema = {
       <div class="mt-12 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-4">
         {amenities.map((a) => (
           <div class="border-t border-white/15 pt-5">
-            <h3 class="text-sm font-semibold text-leaf-300">{a.t}</h3>
+            <h3 class="text-sm font-semibold text-sky-300">{a.t}</h3>
             <p class="mt-2 text-sm leading-relaxed text-white/70">{a.d}</p>
           </div>
         ))}
@@ -258,8 +258,8 @@ const schema = {
     </div>
     <ol class="mt-12 grid gap-8 md:grid-cols-3">
       {steps.map((s) => (
-        <li class="relative rounded-2xl border border-forest-100 bg-white p-7">
-          <span class="font-display text-4xl font-semibold text-leaf-300">{s.n}</span>
+        <li class="relative rounded-2xl border border-ocean-100 bg-white p-7">
+          <span class="font-display text-4xl font-semibold text-sky-300">{s.n}</span>
           <h3 class="font-display mt-3 text-lg font-semibold text-ink">{s.t}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted">{s.d}</p>
         </li>
@@ -270,7 +270,7 @@ const schema = {
   <section class="wrap pb-4">
     <div class="relative isolate overflow-hidden rounded-3xl px-6 py-16 text-center md:px-16 md:py-20">
       <Photo dir="pine-creek-thangadpally" base="01" alt="" sizes="100vw" class="absolute inset-0 -z-10 h-full w-full object-cover" />
-      <div class="absolute inset-0 -z-10 bg-forest-900/75"></div>
+      <div class="absolute inset-0 -z-10 bg-ocean-900/75"></div>
       <h2 class="font-display mx-auto max-w-2xl text-3xl leading-tight font-semibold text-white sm:text-4xl">
         Free this weekend?
       </h2>
@@ -282,7 +282,7 @@ const schema = {
           href={wa('Hi Aadhya Farm Stays, I would like to book a farmhouse. My dates are:')}
           target="_blank"
           rel="noopener"
-          class="rounded-full bg-leaf-500 px-7 py-3.5 text-sm font-semibold text-forest-900 transition hover:bg-leaf-300"
+          class="rounded-full bg-sky-500 px-7 py-3.5 text-sm font-semibold text-ocean-900 transition hover:bg-sky-300"
         >
           Book on WhatsApp
         </a>
