@@ -15,6 +15,7 @@ interface Props {
 
 const { title, description, image = '/img/pine-creek-thangadpally/01-1600.webp', schema } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const noindex = import.meta.env.PUBLIC_NOINDEX === '1';
 const ogImage = new URL(image, Astro.site).href;
 ---
 
@@ -26,6 +27,7 @@ const ogImage = new URL(image, Astro.site).href;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     <meta property="og:type" content="website" />
